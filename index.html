@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aanya Enterprises | Corporate Gifting & Supplies</title>
+    <style>
+        /* General Reset and Base Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f7f7f7;
+            scroll-behavior: smooth;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+
+        /* --- Color Palette --- */
+        :root {
+            --primary-color: #ffcc00;
+            --secondary-color: #333;
+            --light-bg: #fff;
+            --dark-bg: #1a1a1a;
+            --alert-color: #cc0000;
+        }
+
+        /* --- Header/Navigation --- */
+        header {
+            background-color: var(--dark-bg);
+            color: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        /* --- LOGO IMAGE STYLES --- */
+        .logo {
+            font-size: 1.8em;
+            font-weight: 900;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+        .logo-img {
+            height: 40px; 
+            width: auto;
+            vertical-align: middle;
+        }
+        /* --- END LOGO IMAGE STYLES --- */
+
+        nav a {
+            margin-left: 25px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Sections & Containers --- */
+        section {
+            padding: 80px 5%;
+            min-height: 40vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            color: var(--secondary-color);
+        }
+        .section-title.dark {
+            color: var(--primary-color);
+        }
+        
+        /* --- Hero Section --- */
+        #home {
+            background: var(--dark-bg);
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80vh; 
+        }
+        .hero-content {
+            max-width: 800px;
+        }
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        .hero-content p {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 15px 35px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .cta-button:hover {
+            background-color: #ffd966;
+            transform: translateY(-2px);
+        }
+
+        /* --- About Section --- */
+        #about {
+            background-color: var(--light-bg);
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: flex-start;
+        }
+        .about-text h3 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        .about-text p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* --- Communication Policy Box --- */
+        .policy-box {
+            background-color: #ffe0b3;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--alert-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+        .policy-box h3 {
+            color: var(--alert-color);
+            font-size: 1.4em;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        .policy-box h3 span {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+        .policy-box p {
+            font-size: 1em;
+            font-weight: 500;
+            color: #333;
+        }
+        .policy-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        .policy-box ul li {
+            padding-left: 1.5em;
+            text-indent: -1.5em;
+        }
+        .policy-box ul li:before {
+            content: "•";
+            color: var(--alert-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5em;
+            margin-left: 0;
+        }
+
+        /* --- Benefits/USP Section (Retained) --- */
+        #benefits {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding-bottom: 80px;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .benefit-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--primary-color);
+        }
+        .benefit-card h3 {
+            color: var(--secondary-color);
+            margin-top: 15px;
+            font-size: 1.5em;
+        }
+        .benefit-card p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* --- Product Section --- */
+        #products {
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .product-item {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            width: 100%;
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .product-item h3 {
+            color: var(--secondary-color);
+            font-size: 1.4em;
+            margin-top: 0;
+        }
+
+        /* --- Contact Section --- */
+        #contact {
+            background-color: var(--dark-bg);
+            color: #fff;
+            padding-bottom: 80px;
+            text-align: center;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3a3a3a;
+            color: #fff;
+            font-size: 1em;
+            box-sizing: border-box; 
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .contact-button {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark-bg);
+            color: #888;
+            padding: 20px 5%;
+            text-align: center;
+            border-top: 1px solid #333;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: var(--primary-color);
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding-bottom: 10px;
+            }
+            nav {
+                margin-top: 10px;
+            }
+            nav a {
+                margin: 0 10px;
+                display: block;
+                padding: 5px 0;
+            }
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+            section {
+                padding: 60px 5%;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="./assets/logo.png" 
+                 alt="Aanya Enterprises Logo" 
+                 class="logo-img">
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero-content">
+            <h1>Your Premier Partner in **Corporate Gifting & Supplies.**</h1>
+            <p>Elevating your brand identity with premium, personalized solutions for every corporate need.</p>
+            <a href="#products" class="cta-button">Explore Our Products</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Vision</h3>
+                    <p>Aanya Enterprises is dedicated to providing exclusive corporate gifting and supply solutions that reflect the quality and professionalism of your brand. We believe in building lasting relationships by delivering meticulously sourced products and exceptional service.</p>
+                    <p>From employee onboarding kits to large-scale promotional merchandise, we manage the entire procurement and customization process, allowing you to focus on your core business goals.</p>
+                    
+                    <h3>Focus on Quality</h3>
+                    <p>We work exclusively with certified manufacturers and reputable partners to ensure every product we supply meets the **highest standards of durability, design, and value**. Your brand deserves the best, and we are here to deliver it.</p>
+                </div>
+
+                <div class="policy-box">
+                    <h3><span style="color: var(--alert-color);">⚠️</span> Official Communication Policy</h3>
+                    <p>To ensure security and prevent scams or unauthorized transactions, **Aanya Enterprises strictly communicates only via our official email address and the website's contact form.**</p>
+                    <ul>
+                        <li>No Phone Calls: We do not conduct business, confirm orders, or discuss payments over regular phone calls.</li>
+                        <li>No WhatsApp/SMS: We do not use messaging apps for official correspondence.</li>
+                    </ul>
+                    <p>Please use our official email **info.aanyaenterprises@gmail.com** or the dedicated contact section for all inquiries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Choose Aanya Enterprises?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span style="font-size: 2em; color: var(--primary-color);">🎁</span>
+                    <h3>Wide Range of Quality Products</h3>
+                    <p>Access a diverse and curated catalog of top-tier corporate gifts, branded merchandise, and office essentials.</p>
+                </div>
+                <div class="benefit-card">
+                    <span style="font-size: 2em; color: var(--primary-color);">✏️</span>
+                    <h3>Personalized Service & Customization</h3>
+                    <p>Dedicated support to tailor solutions and branding to perfectly match your company's identity and vision.</p>
+                </div>
+                <div class="benefit-card">
+                    <span style="font-size: 2em; color: var(--primary-color);">🚀</span>
+                    <h3>Seamless Procurement Process</h3>
+                    <p>Enjoy a smooth, hassle-free ordering and delivery system, ensuring your supplies arrive on time, every time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <h2 class="section-title">Our Corporate Gifting & Supply Solutions</h2>
+            
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="./assets/merchandise.png" 
+                         alt="Branded Merchandise" 
+                         class="product-image">
+                    <h3>Branded Merchandise</h3>
+                    <p>High-quality customized items for promotions, events, and client giveaways, reflecting your company's identity.</p>
+                </div>
+                
+                <div class="product-item">
+                    <img src="./assets/onboarding.png" 
+                         alt="Employee Onboarding Kits" 
+                         class="product-image">
+                    <h3>Employee Onboarding Kits</h3>
+                    <p>Thoughtfully curated packages to welcome new team members and make a lasting first impression.</p>
+                </div>
+                
+                <div class="product-item">
+                    <img src="./assets/festival.png" 
+                         alt="Festival & Appreciation Gifts" 
+                         class="product-image">
+                    <h3>Festival & Appreciation Gifts</h3>
+                    <p>Elegant and premium gifts for annual holidays, client milestones, and special appreciation events.</p>
+                </div>
+                
+                <div class="product-item">
+                    <img src="./assets/supplies.png" 
+                         alt="Premium Office Supplies" 
+                         class="product-image">
+                    <h3>Premium Office Supplies</h3>
+                    <p>Bulk supply of high-grade stationery, sophisticated notebooks, and essential desk accessories for daily operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title dark">Get in Touch for a Custom Quote</h2>
+            <form class="contact-form" action="YOUR_FINAL_FORM_SUBMISSION_URL_HERE" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="Company Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Inquiry / Order Details</label>
+                    <textarea id="message" name="Message" required></textarea>
+                </div>
+                <button type="submit" class="cta-button contact-button">Send Inquiry</button>
+            </form>
+            
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Aanya Enterprises. All rights reserved. | Corporate Gifting and Supplies.
+    </footer>
+
+</body>
+</html>
